@@ -28,11 +28,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/contests" element={<Index />} />
-          <Route path="/videos" element={<Admin />} />
           <Route path="/hackathons" element={<NewHackathons />} />
           <Route path="/new-hackathons" element={<NewHackathons />} />
-          {/* Keep the old route temporarily for backward compatibility */}
-          <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

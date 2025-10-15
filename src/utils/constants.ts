@@ -3,8 +3,8 @@ import { Platform } from './types';
 // Application-wide constants
 
 // YouTube API configuration
-export const YOUTUBE_API_KEY = 'AIzaSyA4e4qw33gOKaviupxqj-fL2WWJpS_AFiM'; // User's actual API key
-export const DEFAULT_YOUTUBE_PLAYLIST_URL = ''; // No default playlist needed
+export const YOUTUBE_API_KEY = 'AIzaSyA-3CQXlWkyDvvqB0YLFoTXMfBm_XFeIoM'; // User's actual API key
+export const DEFAULT_YOUTUBE_PLAYLIST_URL = 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZLUfBSNp-YQBCOezZKbDSgB'; // Default playlist
 
 export const PLATFORMS: Record<Platform, { name: string; color: string; baseUrl: string }> = {
   codeforces: {
@@ -33,11 +33,11 @@ export const CONTEST_TYPE_LABELS = {
   cookoff: 'Cook-Off'
 };
 
-// Updated to use the default playlist URL as the first option
+// Platform-specific YouTube playlists
 export const YOUTUBE_PLAYLISTS: Record<Platform, string> = {
-  codeforces: DEFAULT_YOUTUBE_PLAYLIST_URL || 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZLUfBSNp-YQBCOezZKbDSgB',
-  codechef: DEFAULT_YOUTUBE_PLAYLIST_URL || 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZIZ6lsE0KCcLWeKNoG45fYr',
-  leetcode: DEFAULT_YOUTUBE_PLAYLIST_URL || 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZI6FhydNz3JBt_-p_i25Cbr'
+  codeforces: 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZLUfBSNp-YQBCOezZKbDSgB',
+  codechef: 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZIZ6lsE0KCcLWeKNoG45fYr',
+  leetcode: 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZI6FhydNz3JBt_-p_i25Cbr'
 };
 
 // Local storage keys

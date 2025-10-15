@@ -1,7 +1,7 @@
 import { YouTubeVideo } from '@/utils/types';
 import { getEnvironmentConfig } from '@/utils/env';
 import { Contest, Platform } from '@/utils/types';
-import { YOUTUBE_PLAYLISTS } from '@/utils/constants';
+import { YOUTUBE_PLAYLISTS, YOUTUBE_API_KEY } from '@/utils/constants';
 import { getSavedSolutionLinks } from '@/utils/api/solutions';
 
 /**
@@ -60,10 +60,22 @@ export async function fetchPlaylistVideos(
     );
     
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(
-        errorData.error?.message || `API request failed with status ${response.status}`
-      );
+      let errorMessage = `API request failed with status ${response.status}`;
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.error?.message || errorMessage;
+        
+        // Provide more specific error messages
+        if (response.status === 403) {
+          errorMessage = 'YouTube API key is invalid or quota exceeded';
+        } else if (response.status === 404) {
+          errorMessage = 'YouTube playlist not found or is private';
+        }
+      } catch (e) {
+        // If we can't parse the error response, use the status-based message
+      }
+      
+      throw new Error(errorMessage);
     }
     
     const data = await response.json();
@@ -247,11 +259,57 @@ export async function findVideoForContest(
 }
 
 /**
+ * Search YouTube for contest solutions using the Search API
+ */
+export async function searchYouTubeForContest(
+  contestName: string,
+  apiKey: string,
+  maxResults: number = 5
+): Promise<YouTubeVideo[]> {
+  try {
+    // Create search query
+    const searchTerms = [
+      contestName,
+      'solution',
+      'tutorial',
+      'explanation'
+    ].join(' ');
+    
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchTerms)}&type=video&maxResults=${maxResults}&key=${apiKey}`
+    );
+    
+    if (!response.ok) {
+      throw new Error(`Search API failed with status ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    return data.items?.map((item: any) => ({
+      videoId: item.id.videoId,
+      title: item.snippet.title,
+      description: item.snippet.description || '',
+      thumbnailUrl: item.snippet.thumbnails?.medium?.url || '',
+      publishedAt: item.snippet.publishedAt,
+      playlistId: 'search-result',
+    })) || [];
+  } catch (error) {
+    console.error('Error searching YouTube:', error);
+    return [];
+  }
+}
+
+/**
  * Smart match contests with YouTube videos from platform-specific playlists
  */
 export async function smartMatchContestVideos(contests: Contest[]): Promise<{ resultMap: Record<string, string>, stats: Record<string, any> }> {
   const config = getEnvironmentConfig();
-  const apiKey = config.youtubeApiKey;
+  let apiKey = config.youtubeApiKey;
+  
+  // Fallback to hardcoded API key if not found in config
+  if (!apiKey) {
+    apiKey = YOUTUBE_API_KEY;
+  }
   
   if (!apiKey) {
     console.error('YouTube API key is missing, cannot perform smart matching');
@@ -259,6 +317,7 @@ export async function smartMatchContestVideos(contests: Contest[]): Promise<{ re
   }
   
   console.log('Starting smart matching for contests with YouTube videos...');
+  console.log(`Using API key: ${apiKey ? apiKey.substring(0, 10) + '...' : 'MISSING'}`);
   
   // Group contests by platform
   const platformContests: Record<Platform, Contest[]> = {
@@ -485,8 +544,32 @@ export async function smartMatchContestVideos(contests: Contest[]): Promise<{ re
           }
         }
         
-        // If no match found for this contest, use the platform's general playlist
+        // If no match found for this contest, try YouTube search as fallback
         if (!resultMap[contest.id]) {
+          console.log(`No playlist match found for "${contest.name}", trying YouTube search...`);
+          
+          try {
+            const searchResults = await searchYouTubeForContest(contest.name, apiKey, 3);
+            
+            if (searchResults.length > 0) {
+              // Use the first search result
+              const bestMatch = searchResults[0];
+              resultMap[contest.id] = `https://www.youtube.com/watch?v=${bestMatch.videoId}`;
+              matchCount++;
+              stats.matched++;
+              stats.platforms[platform].matched++;
+              stats.platforms[platform].matchedVideos.push({
+                contestName: contest.name,
+                videoTitle: bestMatch.title,
+                matchType: 'search'
+              });
+              console.log(`🔍 Search match found: "${contest.name}" -> "${bestMatch.title}"`);
+              continue;
+            }
+          } catch (error) {
+            console.error(`Search failed for "${contest.name}":`, error);
+          }
+          
           // For CodeChef contests, we'll add a specific fallback pattern
           if (platform === 'codechef') {
             // Get the specific contest type

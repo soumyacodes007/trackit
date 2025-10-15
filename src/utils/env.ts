@@ -22,9 +22,9 @@ export function initializeEnvironment(): EnvironmentConfig {
     if (storedConfig) {
       currentConfig = JSON.parse(storedConfig);
     } else {
-      // Default configuration if nothing is stored
+      // Default configuration if nothing is stored - use hardcoded API key
       currentConfig = {
-        youtubeApiKey: '',
+        youtubeApiKey: 'AIzaSyA-3CQXlWkyDvvqB0YLFoTXMfBm_XFeIoM',
         youtubePlaylistUrl: '',
       };
       
@@ -36,9 +36,9 @@ export function initializeEnvironment(): EnvironmentConfig {
   } catch (error) {
     console.error('Error initializing environment configuration:', error);
     
-    // Fallback to empty config if there's an error
+    // Fallback to config with hardcoded API key if there's an error
     currentConfig = {
-        youtubeApiKey: '',
+        youtubeApiKey: 'AIzaSyA-3CQXlWkyDvvqB0YLFoTXMfBm_XFeIoM',
         youtubePlaylistUrl: '',
     };
     
@@ -99,11 +99,11 @@ export function getConfigValue<K extends keyof EnvironmentConfig>(
 
 // For backwards compatibility
 export function getYoutubeApiKey(): string {
-  return getConfigValue('youtubeApiKey', '') || '';
+  return getConfigValue('youtubeApiKey', 'AIzaSyA-3CQXlWkyDvvqB0YLFoTXMfBm_XFeIoM') || 'AIzaSyA-3CQXlWkyDvvqB0YLFoTXMfBm_XFeIoM';
 }
 
 export function getYoutubePlaylistUrl(): string {
-  return getConfigValue('youtubePlaylistUrl', '') || '';
+  return getConfigValue('youtubePlaylistUrl', 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZLUfBSNp-YQBCOezZKbDSgB') || 'https://www.youtube.com/playlist?list=PLcXpkI9A-RZLUfBSNp-YQBCOezZKbDSgB';
 }
 
 // Initialize the environment on import
