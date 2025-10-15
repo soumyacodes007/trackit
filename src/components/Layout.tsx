@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/button';
-import { Award, Menu, Settings, X, Home, Calendar, Code } from 'lucide-react';
+import { Menu, X, Home, Calendar, Code } from 'lucide-react';
 import { useState } from 'react';
 import { StackedCircularFooter } from '@/components/ui/stacked-circular-footer';
 import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern';

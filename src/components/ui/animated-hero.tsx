@@ -65,11 +65,15 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-row gap-3">
-            <Button size="lg" className="gap-4" variant="outline">
-              View contests <MoveRight className="w-4 h-4" />
+            <Button size="lg" className="gap-4" variant="outline" asChild>
+              <a href="/contests">
+                View contests <MoveRight className="w-4 h-4" />
+              </a>
             </Button>
-            <Button size="lg" className="gap-4">
-              Get started <MoveRight className="w-4 h-4" />
+            <Button size="lg" className="gap-4" asChild>
+              <a href="/contests">
+                Get started <MoveRight className="w-4 h-4" />
+              </a>
             </Button>
           </div>
         </div>
