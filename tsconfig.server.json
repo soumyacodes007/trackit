@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/server",
+    "rootDir": "./src/server",
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/server/**/*"],
+  "exclude": ["node_modules", "dist", "src/app", "src/components", "src/pages", "src/hooks", "src/services", "src/types", "src/utils", "src/main.tsx", "src/App.tsx", "src/index.css", "src/vite-env.d.ts"]
+}
