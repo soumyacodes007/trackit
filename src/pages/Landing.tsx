@@ -96,91 +96,91 @@ const resources: Resource[] = [
     url: "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
   },
   {
-    title: "Ask Senior Sheet Solutions",
-    description: "Complete solutions including math for beginners section",
-    url: "https://docs.google.com/spreadsheets/d/1WqBHyKfCUX0ZuxcLS38YjncOE26B6dweNxuor0Eh11g/edit?usp=sharing",
+    title: " Love Babbar DSA",
+    description: "DSA course by Love Babbar in c ++ ",
+    url: "https://youtube.com/playlist?list=PLDzeHZWIZsTryvtXdMr6rPh4IDexB5NIA&si=ZK8IoqGuO36cAYiP",
     sourceUrl: "https://asksenior.in/learn",
     sourceName: "Ask Senior"
   },
   {
-    title: "AlgoZenith Premium Sheet",
-    description: "Curated problems for advanced competitive programmers",
-    url: "https://docs.google.com/spreadsheets/d/1-kFigIqH3xcWjsjnGqKiVx_eoOXGOgzXMLGwie7S4S4/edit?gid=0#gid=0",
+    title: " STRIVER Youtube course C++ ",
+    description: "its one of the best c++ video tutorial ",
+    url: "https://youtube.com/playlist?list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz&si=ObNIRBOyDDsjrUuC",
   },
   {
     title: "ACD Sheet",
     description: "Collection of 800-rated problems with solutions",
-    url: "https://docs.google.com/spreadsheets/d/1k6F1hVOQhyHuNJHuOCTFukyBbXiTX3Y4Arz2cx-YH94/edit?usp=sharing",
+    url: "https://acodedaily.com/",
     sourceUrl: "https://acodedaily.com/",
     sourceName: "A Code Daily"
   },
   {
-    title: "Kartik Arora Specialist Sheet",
-    description: "Targeted practice for reaching Specialist level",
-    url: "https://docs.google.com/spreadsheets/d/1krbQLgfxedAREtSGAmQ7LzxrC5WZfpHMl1pqgj5Mxdo/edit?usp=sharing",
-    sourceUrl: "https://docs.google.com/document/d/1EUTucOFpmHPnblOXO0J7hEyVH0RvM91j1pTO60AdzVM/edit?tab=t.0",
+    title: "Kunal khushwaha",
+    description: " one of the best java course fro dsa ",
+    url: "https://youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ&si=PawKiWbULsbMFrm0",
+    sourceUrl: "https://youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ&si=PawKiWbULsbMFrm0",
     sourceName: "Kartik Arora's Guide"
   },
   {
-    title: "Kartik Arora Expert Sheet",
-    description: "Advanced problems for Expert-level competitors",
-    url: "https://docs.google.com/spreadsheets/d/1yLiZfGNqnaZo2MDCgWNSFdFk_H830sNjXEA22p5VInc/edit?usp=sharing",
-    sourceUrl: "https://docs.google.com/document/d/1-wkEQSYLLaKne-6GJ4Wc_dTGmnRn5Fv_Ax64LrheK_M/edit?tab=t.0",
+    title: "Rohit Negi Dsa",
+    description: "Another good course for c ++ dsa ",
+    url: "https://youtube.com/playlist?list=PLQEaRBV9gAFu4ovJ41PywklqI7IyXwr01&si=8mcOmCG2xXuAp8wE",
+    sourceUrl: "https://youtube.com/playlist?list=PLQEaRBV9gAFu4ovJ41PywklqI7IyXwr01&si=8mcOmCG2xXuAp8wE",
     sourceName: "Kartik Arora's Guide"
   },
   {
     title: "Neetcode Sheet",
     description: "Popular coding interview preparation resource",
-    url: "https://docs.google.com/spreadsheets/d/1YGM46-1ORNcLccldQOU-bhovFG-Hl6UUJJhrFP0vyHs/edit?usp=sharing",
+    url: "https://neetcode.io/practice?tab=allNC",
     sourceUrl: "https://neetcode.io/practice?tab=allNC",
     sourceName: "Neetcode.io"
   },
   {
     title: "A2OJ Ladders",
     description: "Progressive problem sets organized by difficulty",
-    url: "https://docs.google.com/spreadsheets/d/1BHlu1Y0KyZBWjQeLtjNZGryRXROUgPlfgJF52LVQbBc/edit?usp=sharing",
+    url: "https://earthshakira.github.io/a2oj-clientside/server/",
     sourceUrl: "https://earthshakira.github.io/a2oj-clientside/server/",
     sourceName: "A2OJ"
   },
   {
     title: "Coding 75 Expert Sheet",
     description: "Structured approach to master DSA in 75 days",
-    url: "https://docs.google.com/spreadsheets/d/145k2fuCde-DbXoeo7U3TGKOJjJZR8TKW17hdQlkATj8/edit?usp=sharing",
+    url: "https://coding75.com/dsa-cp/sheets/expert-sheet",
     sourceUrl: "https://coding75.com/dsa-cp/sheets/expert-sheet",
     sourceName: "Coding75"
   },
   {
     title: "Striver CP Sheet",
     description: "Focused sheet for competitive programming practice",
-    url: "https://docs.google.com/spreadsheets/d/18x9USXwYoGLUlLiDu6FFNtW_UbvIBy-XGfxlrZoyjt8/edit?gid=0#gid=0",
+    url: "https://takeuforward.org/interview-experience/strivers-cp-sheet",
     sourceUrl: "https://takeuforward.org/interview-experience/strivers-cp-sheet",
     sourceName: "Take U Forward"
   },
   {
     title: "TLE Eliminators CP Sheet",
     description: "Structured approach to eliminate TLE (Time Limit Exceeded) issues",
-    url: "https://docs.google.com/spreadsheets/d/1KWa_8CAaHg96j1FolJMwZ2t0lFtZ9HTtPY55rETeDw4/edit?gid=0#gid=0",
+    url: "https://www.tle-eliminators.com/cp-sheet",
     sourceUrl: "https://www.tle-eliminators.com/cp-sheet",
     sourceName: "TLE Eliminators"
   },
   {
     title: "CSES Problem Set",
     description: "Comprehensive collection of standard algorithm problems",
-    url: "https://docs.google.com/spreadsheets/d/1e9AeRjFmmKpsYAP8AHhKuZ1rESmErk00Vrr6odGrG6o/edit?usp=sharing",
+    url: "https://cses.fi/problemset",
     sourceUrl: "https://cses.fi/problemset",
     sourceName: "CSES"
   },
   {
     title: "AtCoder Training by Kenkoo",
     description: "Structured training path using AtCoder problems",
-    url: "https://docs.google.com/spreadsheets/d/143j0SigIb4V5VLkSaTQDk_Yk-4IqVqqotMte23Rt4OU/edit?usp=sharing",
+    url: "https://kenkoooo.com/atcoder/#/training/",
     sourceUrl: "https://kenkoooo.com/atcoder/#/training/",
     sourceName: "Kenkoooo"
   },
   {
     title: "C2OJ Ladders",
     description: "Progressive problem sets specifically for CodeForces",
-    url: "https://docs.google.com/spreadsheets/d/1ZePvdQBefqT1HXM1qD0Bq_mvKjhCy0RMnn0-3r32s0k/edit?usp=sharing",
+    url: "https://c2-ladders-juol.onrender.com/",
     sourceUrl: "https://c2-ladders-juol.onrender.com/",
     sourceName: "C2 Ladders"
   }
